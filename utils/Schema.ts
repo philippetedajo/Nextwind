@@ -29,3 +29,8 @@ export const registerSchema = yup.object().shape({
   phone,
   password,
 });
+
+export const loginSchema = yup.object().shape({
+  phone,
+  password,
+});
