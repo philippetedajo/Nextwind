@@ -1,6 +1,6 @@
 import AuthTemplate from "../../templates/auth.template";
 import { useForm } from "react-hook-form";
-import { ResetPasswordFormOtp } from "../../_types/auth_types";
+import { ResetPasswordForm } from "../../_types/auth_types";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { resetPasswordSchema } from "../../utils/schema";
 
@@ -9,7 +9,7 @@ const Reset = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ResetPasswordFormOtp>({
+  } = useForm<ResetPasswordForm>({
     resolver: yupResolver(resetPasswordSchema),
   });
 

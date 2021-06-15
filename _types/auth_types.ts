@@ -1,20 +1,21 @@
-export interface RegisterFormOtp {
+export interface RegisterForm {
   firstname: string;
   lastname: string;
-  phone: string;
+  email: string;
   password: string;
+  confirm_password: string;
 }
 
-export interface LoginFormOtp {
-  phone: string;
-  password: string;
+export interface LoginForm {
+  email: string;
+  password_min: string;
 }
 
-export interface ForgotPasswordFormOtp {
-  phone: string;
+export interface ForgotPasswordForm {
+  email: string;
 }
 
-export interface ResetPasswordFormOtp {
+export interface ResetPasswordForm {
   password: string;
   confirm_password: string;
 }

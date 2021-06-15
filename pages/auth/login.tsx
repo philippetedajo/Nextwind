@@ -1,17 +1,17 @@
 import AuthTemplate from "../../templates/auth.template";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import { LoginFormOtp } from "../../_types/auth_types";
+import { LoginForm } from "../../_types/auth_types";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { loginSchemaOtp } from "../../utils/schema";
+import { loginSchema } from "../../utils/schema";
 
 const Login = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginFormOtp>({
-    resolver: yupResolver(loginSchemaOtp),
+  } = useForm<LoginForm>({
+    resolver: yupResolver(loginSchema),
   });
 
   const onLogin = (data) => {
@@ -26,13 +26,13 @@ const Login = () => {
         <p className="mt-2 mb-5 text-gray-400 ">Happy to meet you again</p>
 
         <div className="flex flex-col mb-3">
-          <label>Phone *</label>
+          <label>Email *</label>
           <input
             className="input-form my-2"
             type="text"
-            {...register("phone")}
+            {...register("email")}
           />
-          <small className="mt-1 text-red-500">{errors.phone?.message}</small>
+          <small className="mt-1 text-red-500">{errors.email?.message}</small>
         </div>
 
         <div className="flex flex-col mb-3">
@@ -40,10 +40,10 @@ const Login = () => {
           <input
             className="input-form my-2"
             type="password"
-            {...register("password")}
+            {...register("password_min")}
           />
           <small className="mt-1 mb-1 text-red-500">
-            {errors.password?.message}
+            {errors.password_min?.message}
           </small>
         </div>
 
@@ -57,12 +57,12 @@ const Login = () => {
         <div className="flex mt-3 justify-between">
           <p className="">
             Don't have an account yet ?
-            <Link href="/auth-otp/register">
+            <Link href="/auth/register">
               <span className="text-blue-600 cursor-pointer"> Join</span>
             </Link>
           </p>
 
-          <Link href="/auth-otp/forgot-password">
+          <Link href="/auth/forgot-password">
             <a className="text-sm text-gray-500">Forgot your password ?</a>
           </Link>
         </div>

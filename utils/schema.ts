@@ -7,43 +7,47 @@ let schemas = {
     .min(3)
     .max(20),
   lastname: yup.string(),
-  phone: yup
-    .string()
-    .required("That doesn't look like a phone number")
-    .min(6)
-    .max(14),
+  email: yup.string().email().required("You must provide an email"),
   password: yup
     .string()
-    .required("You should provide your password")
+    .required("You must provide your password")
     .matches(
       /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/,
       "Should have at least 8 characters, with one capital letter and one number."
     ),
+  password_min: yup.string().required("You must provide your password"),
   confirm_password: yup
     .string()
     .oneOf([yup.ref("password"), null], "Passwords must match"),
 };
 
-const { firstname, lastname, phone, password, confirm_password } = schemas;
+const {
+  firstname,
+  lastname,
+  password,
+  confirm_password,
+  email,
+  password_min,
+} = schemas;
 
-export const resetPasswordSchema = yup.object().shape({
+export const registerSchema = yup.object().shape({
+  firstname,
+  lastname,
+  email,
   password,
   confirm_password,
 });
 
-// OTP Schema ==================================================
-export const registerSchemaOtp = yup.object().shape({
-  firstname,
-  lastname,
-  phone,
-  password,
+export const loginSchema = yup.object().shape({
+  email,
+  password_min,
 });
 
-export const loginSchemaOtp = yup.object().shape({
-  phone,
-  password,
+export const forgotPasswordSchema = yup.object().shape({
+  email,
 });
 
-export const forgotPasswordSchemaOtp = yup.object().shape({
-  phone,
+export const resetPasswordSchema = yup.object().shape({
+  password,
+  confirm_password,
 });

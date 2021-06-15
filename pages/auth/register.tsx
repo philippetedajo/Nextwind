@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { RegisterFormOtp } from "../../_types/auth_types";
-import { registerSchemaOtp } from "../../utils/schema";
+import { RegisterForm } from "../../_types/auth_types";
+import { registerSchema } from "../../utils/schema";
 import AuthTemplate from "../../templates/auth.template";
 
 const Register = () => {
@@ -10,8 +10,8 @@ const Register = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<RegisterFormOtp>({
-    resolver: yupResolver(registerSchemaOtp),
+  } = useForm<RegisterForm>({
+    resolver: yupResolver(registerSchema),
   });
 
   const onRegister = (data) => {
@@ -52,13 +52,13 @@ const Register = () => {
         </div>
 
         <div className="flex flex-col mb-3">
-          <label>Phone *</label>
+          <label>Email *</label>
           <input
             className="input-form my-2"
             type="text"
-            {...register("phone")}
+            {...register("email")}
           />
-          <small className="mt-1 text-red-500">{errors.phone?.message}</small>
+          <small className="mt-1 text-red-500">{errors.email?.message}</small>
         </div>
 
         <div className="flex flex-col mb-3">
@@ -73,6 +73,18 @@ const Register = () => {
           </small>
         </div>
 
+        <div className="flex flex-col mb-3">
+          <label>Confirm password *</label>
+          <input
+            className="input-form my-2"
+            type="text"
+            {...register("confirm_password")}
+          />
+          <small className="mt-1 text-red-500">
+            {errors.confirm_password?.message}
+          </small>
+        </div>
+
         <button
           type="submit"
           className="btn w-full bg-blue-600 text-white mt-3 pb-3"
@@ -82,7 +94,7 @@ const Register = () => {
 
         <p className="my-5">
           Already have an account ?
-          <Link href="/auth-otp/login">
+          <Link href="/auth/login">
             <span className="text-blue-600 cursor-pointer"> Login</span>
           </Link>
         </p>
