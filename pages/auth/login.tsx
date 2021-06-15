@@ -19,7 +19,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="border w-96">
       <form onSubmit={handleSubmit(onLogin)}>
         <h1 className="mb-10 mt-16">Login</h1>
         <h2>Login to your account</h2>
