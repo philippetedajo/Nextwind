@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fonts */
+@font-face {
+  font-family: "ddin";
+  src: local("ddin"), url("/fonts/d-din.regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "ddinbold";
+  src: local("ddinbold"), url("/fonts/d-din.bold.ttf") format("truetype");
+}
+
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  @apply text-6xl mt-5 font-ddinbold;
+}
+
+h2 {
+  @apply text-3xl;
+}
+
+.btn {
+  @apply rounded py-2 px-5 uppercase text-sm font-bold text-center cursor-pointer;
+}
+
+.btn-form {
+  @apply border rounded py-2 px-5 uppercase text-sm;
+}
