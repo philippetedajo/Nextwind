@@ -79,6 +79,7 @@ const Register = () => {
         >
           CREATE ACCOUNT
         </button>
+
         <p className="my-5">
           Already have an account ?
           <Link href="/auth-otp/login">

@@ -53,12 +53,19 @@ const Login = () => {
         >
           SIGN IN
         </button>
-        <p className="my-5">
-          Don't have an account yet ?
-          <Link href="/auth-otp/register">
-            <span className="text-blue-600 cursor-pointer"> Join</span>
+
+        <div className="flex mt-3 justify-between">
+          <p className="">
+            Don't have an account yet ?
+            <Link href="/auth-otp/register">
+              <span className="text-blue-600 cursor-pointer"> Join</span>
+            </Link>
+          </p>
+
+          <Link href="/auth-otp/forgot-password">
+            <a className="text-sm text-gray-500">Forgot your password ?</a>
           </Link>
-        </p>
+        </div>
       </form>
     </div>
   );
