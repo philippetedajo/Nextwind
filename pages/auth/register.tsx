@@ -19,7 +19,7 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className="w-96 lg:w-2/5">
       <form onSubmit={handleSubmit(onRegister)}>
         <h1 className="mb-10 mt-16">Register</h1>
         <h2>Create your account in a few clicks</h2>
