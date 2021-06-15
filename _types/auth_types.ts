@@ -1,6 +1,6 @@
 export interface RegisterForm {
   firstname: string;
   lastname: string;
-  phone: number;
+  phone: string;
   password: string;
 }

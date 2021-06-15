@@ -8,16 +8,16 @@ let schemas = {
     .max(20),
   lastname: yup.string(),
   phone: yup
-    .number()
+    .string()
     .required("That doesn't look like a phone number")
     .min(6)
-    .max(12),
+    .max(14),
   password: yup
     .string()
     .required()
     .matches(
       /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/,
-      "Your password should have at least 8 characters, one capital letter and one number."
+      "Should have at least 8 characters, with one capital letter and one number."
     ),
 };
 

@@ -6,7 +6,11 @@ import { registerSchema } from "../../utils/Schema";
 import AuthTemplate from "../../templates/auth.template";
 
 const Register = () => {
-  const { register, handleSubmit, errors } = useForm<RegisterForm>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<RegisterForm>({
     resolver: yupResolver(registerSchema),
   });
 
@@ -26,9 +30,8 @@ const Register = () => {
             <label className="mb-2">Firstname *</label>
             <input
               className="input-form mb-1"
-              name="firstname"
               type="text"
-              ref={register}
+              {...register("firstname")}
             />
             <small className="mt-1 mb-1 text-red-500">
               {errors.firstname?.message}
@@ -39,9 +42,8 @@ const Register = () => {
             <label className="mb-2">Lastname </label>
             <input
               className="input-form mb-1"
-              name="lastname"
               type="text"
-              ref={register}
+              {...register("lastname")}
             />
             <small className="mt-1 mb-1 text-red-500">
               {errors.lastname?.message}
@@ -50,14 +52,22 @@ const Register = () => {
         </div>
 
         <div className="flex flex-col mb-3">
-          <label>Phone</label>
-          <input className="input-form my-2" name="phone" type="number" />
+          <label>Phone *</label>
+          <input
+            className="input-form my-2"
+            type="text"
+            {...register("phone")}
+          />
           <small className="mt-1 text-red-500">{errors.phone?.message}</small>
         </div>
 
         <div className="flex flex-col mb-3">
-          <label>Password</label>
-          <input className="input-form my-2" type="password" />
+          <label>Password *</label>
+          <input
+            className="input-form my-2"
+            type="password"
+            {...register("password")}
+          />
           <small className="mt-1 mb-1 text-red-500">
             {errors.password?.message}
           </small>
@@ -65,7 +75,7 @@ const Register = () => {
 
         <button
           type="submit"
-          className="btn w-full bg-blue-600 text-white mt-1 pb-3"
+          className="btn w-full bg-blue-600 text-white mt-3 pb-3"
         >
           CREATE ACCOUNT
         </button>
