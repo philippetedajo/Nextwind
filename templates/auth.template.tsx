@@ -1,18 +1,9 @@
-import { Footer } from "../components";
-
 function AuthTemplate({ children }) {
   return (
     <>
-      <div
-        className="container flex justify-center mx-auto px-10"
-        style={{
-          // full height - header
-          minHeight: "calc(100vh - 30px)",
-        }}
-      >
+      <div className="container flex justify-center mx-auto px-10">
         {children}
       </div>
-      <Footer />
     </>
   );
 }

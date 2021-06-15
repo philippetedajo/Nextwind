@@ -1,39 +1,22 @@
-import React, { useState } from "react";
-import { MenuOverlay } from "../components";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { IoCloseSharp } from "react-icons/io5";
+import React from "react";
 import { ActiveLink } from "./Links";
+import Link from "next/link";
 
 export const Header = () => {
-  const [menuState, setMenuState] = useState(false);
-
-  const handleToggleMenu = () => {
-    setMenuState(!menuState);
-  };
-
   return (
-    <div className="px-10 py-4 flex justify-between ">
+    <div className="px-10 py-4 flex justify-between border ">
       <div className="flex items-center">
-        <ActiveLink activeClassName="text-third" href="/">
+        <ActiveLink activeClassName="" href="/">
           <a className="text-2xl cursor-pointer">Stamina</a>
         </ActiveLink>
       </div>
-      <MenuOverlay menuState={menuState} setMenuState={setMenuState} />
-      <div className="flex items-center lg:hidden z-10">
-        {menuState ? (
-          <IoCloseSharp
-            onClick={handleToggleMenu}
-            fill="#fff"
-            size={26}
-            className="menu-close cursor-pointer transition-all"
-          />
-        ) : (
-          <GiHamburgerMenu
-            onClick={handleToggleMenu}
-            size={23}
-            className="cursor-pointer transition-all"
-          />
-        )}
+      <div>
+        <Link href="/auth/login">
+          <a className="text-xl my-3 mr-4 cursor-pointer">Login</a>
+        </Link>
+        <Link href="/auth/register">
+          <a className="text-xl my-3 cursor-pointer">Register</a>
+        </Link>
       </div>
     </div>
   );
