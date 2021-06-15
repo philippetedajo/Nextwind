@@ -14,7 +14,7 @@ let schemas = {
     .max(14),
   password: yup
     .string()
-    .required()
+    .required("You should provide your password")
     .matches(
       /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/,
       "Should have at least 8 characters, with one capital letter and one number."
