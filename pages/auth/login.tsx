@@ -47,7 +47,12 @@ const Login = () => {
           </small>
         </div>
 
-        <div className="btn bg-blue-600 text-white my-8">SIGN IN</div>
+        <button
+          type="submit"
+          className="btn w-full bg-blue-600 text-white mt-3 pb-3"
+        >
+          SIGN IN
+        </button>
         <p className="my-5 text-center">
           Don't have an account yet ?
           <Link href="/auth/register">
