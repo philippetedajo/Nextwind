@@ -51,17 +51,13 @@ const Register = () => {
 
         <div className="flex flex-col mb-3">
           <label>Phone</label>
-          <input className="input-form my-2" type="number" />
+          <input className="input-form my-2" name="phone" type="number" />
           <small className="mt-1 text-red-500">{errors.phone?.message}</small>
         </div>
 
         <div className="flex flex-col mb-3">
           <label>Password</label>
-          <input
-            className="input-form my-2"
-            type="password"
-            placeholder="Password"
-          />
+          <input className="input-form my-2" type="password" />
           <small className="mt-1 mb-1 text-red-500">
             {errors.password?.message}
           </small>
@@ -69,7 +65,7 @@ const Register = () => {
 
         <button
           type="submit"
-          className="btn w-full bg-blue-600 text-white my-5"
+          className="btn w-full bg-blue-600 text-white mt-1 pb-3"
         >
           CREATE ACCOUNT
         </button>
