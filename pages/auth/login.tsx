@@ -1,17 +1,9 @@
 import AuthTemplate from "../../templates/auth.template";
 import Link from "next/link";
-import Router from "next/router";
-import { BiArrowBack } from "react-icons/bi";
 
 const Login = () => {
   return (
     <div>
-      <div
-        className="absolute flex items-center left-0 ml-10 mt-5 cursor-pointer text-third"
-        onClick={() => Router.back()}
-      >
-        <BiArrowBack className="mr-2" /> back
-      </div>
       <form className="w-96">
         <h1 className="mb-10 mt-16">Login</h1>
         <h2>Login to your account</h2>

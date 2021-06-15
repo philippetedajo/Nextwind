@@ -19,25 +19,6 @@ export const Header = () => {
         </ActiveLink>
       </div>
       <MenuOverlay menuState={menuState} setMenuState={setMenuState} />
-      <ul className="text-lg items-center hidden lg:flex">
-        <li>
-          <ActiveLink activeClassName="text-third" href="/about">
-            <a className="mr-5">About </a>
-          </ActiveLink>
-        </li>
-      </ul>
-      <ul className="text-lg flex items-center hidden lg:flex">
-        <li>
-          <ActiveLink activeClassName="text-third" href="/auth/login">
-            <a className="mr-5">Login</a>
-          </ActiveLink>
-        </li>
-        <li>
-          <ActiveLink activeClassName="text-third" href="/auth/register">
-            <a className="">Register</a>
-          </ActiveLink>
-        </li>
-      </ul>
       <div className="flex items-center lg:hidden z-10">
         {menuState ? (
           <IoCloseSharp
