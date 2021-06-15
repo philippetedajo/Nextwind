@@ -43,6 +43,6 @@ h2 {
   @apply rounded py-2 px-5 uppercase text-sm font-bold text-center cursor-pointer;
 }
 
-.btn-form {
+.input-form {
   @apply border rounded py-2 px-5 uppercase text-sm;
 }

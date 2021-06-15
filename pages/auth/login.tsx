@@ -8,6 +8,7 @@ const Login = () => {
         <h1 className="mb-10 mt-16">Login</h1>
         <h2>Login to your account</h2>
         <p className="mt-2 mb-5 text-gray-400 ">Happy to meet you again</p>
+
         <div className="flex flex-col mb-3">
           <label>Username</label>
           <input className="btn-form my-2" type="text" placeholder="John Doe" />
