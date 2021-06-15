@@ -8,7 +8,7 @@ function PageTemplate({ children }) {
         className="px-10 py-5"
         style={{
           // full height - header - footer
-          minHeight: "calc(100vh - 64px - 50px )",
+          minHeight: "calc(100vh - 64px - 30px )",
         }}
       >
         {children}
