@@ -15,9 +15,9 @@ const Otp = () => {
         >
           SIGN IN
         </button>
-        <p className="my-5 text-center">
-          Don't have an account yet ?
-          <span className="text-blue-600 cursor-pointer"> Join</span>
+        <p className="my-5">
+          No Otp code ?{" "}
+          <span className="text-blue-600 cursor-pointer"> Send again</span>
         </p>
       </div>
     </div>

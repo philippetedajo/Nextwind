@@ -79,7 +79,7 @@ const Register = () => {
         >
           CREATE ACCOUNT
         </button>
-        <p className="my-5 text-center">
+        <p className="my-5">
           Already have an account ?
           <Link href="/auth/login">
             <span className="text-blue-600 cursor-pointer"> Login</span>
