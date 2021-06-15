@@ -1,6 +1,7 @@
 import AuthTemplate from "../../templates/auth.template";
 import Router from "next/router";
 import { BiArrowBack } from "react-icons/bi";
+import Link from "next/link";
 
 const Register = () => {
   return (
@@ -15,7 +16,7 @@ const Register = () => {
       <form className="w-96">
         <h1 className="mb-10 mt-16">Register</h1>
         <h2>Create your account in a few clicks</h2>
-        <p className="mt-2 mb-5 text-fourth ">Welcome amongs us</p>
+        <p className="mt-2 mb-5 text-gray-400 ">Welcome amongs us</p>
         <div className="flex flex-col mb-3">
           <label>Username</label>
           <input className="btn-form my-2" type="text" placeholder="John Doe" />
@@ -40,15 +41,16 @@ const Register = () => {
         <div className="flex flex-col">
           <div className="flex items-center mb-5 text-xs">
             <input className="mr-2" type="checkbox" />
-            <span className="text-fourth">I agree to the</span>
+            <span className="text-gray-400">I agree to the</span>
             <span className="text-third ml-1">privacy policy</span>
           </div>
         </div>
-        <div className="btn border-2 border-third bg-third text-secondary my-5">
-          CREATE ACCOUNT
-        </div>
+        <div className="btn bg-blue-600 text-white  my-5">CREATE ACCOUNT</div>
         <p className="my-5 text-center">
-          Already have an account ?<span className="text-third"> Login</span>
+          Already have an account ?
+          <Link href="/auth/register">
+            <span className="text-blue-600 cursor-pointer"> Login</span>
+          </Link>
         </p>
       </form>
     </div>
