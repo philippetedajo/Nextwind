@@ -1928,6 +1928,11 @@ react-is@16.13.1, react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-otp-input@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/react-otp-input/-/react-otp-input-2.3.1.tgz#85d85c01e5d51b0a43c3dc03927292a54d15ed98"
+  integrity sha512-ka14XemxkVh+nl1ykD9HutTyx5ailf4smOZ9gqciQ7GODbepWcjfh1pqsoEB2Mib/sFf1I6OjaPnct5d27+SFA==
+
 react-refresh@0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
