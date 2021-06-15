@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { RegisterForm } from "../../_types/auth_types";
-import { registerSchema } from "../../utils/Schema";
+import { RegisterFormOtp } from "../../_types/auth_types";
+import { registerSchemaOtp } from "../../utils/schema";
 import AuthTemplate from "../../templates/auth.template";
 
 const Register = () => {
@@ -10,8 +10,8 @@ const Register = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<RegisterForm>({
-    resolver: yupResolver(registerSchema),
+  } = useForm<RegisterFormOtp>({
+    resolver: yupResolver(registerSchemaOtp),
   });
 
   const onRegister = (data) => {
@@ -81,7 +81,7 @@ const Register = () => {
         </button>
         <p className="my-5">
           Already have an account ?
-          <Link href="/auth/login">
+          <Link href="/auth-otp/login">
             <span className="text-blue-600 cursor-pointer"> Login</span>
           </Link>
         </p>

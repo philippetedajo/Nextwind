@@ -10,8 +10,6 @@ const Otp = () => {
     setCode(otp);
   };
 
-  console.log(code);
-
   return (
     <div className="w-96 lg:w-2/5">
       <div>

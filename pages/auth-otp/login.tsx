@@ -1,17 +1,17 @@
 import AuthTemplate from "../../templates/auth.template";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import { LoginForm } from "../../_types/auth_types";
+import { LoginFormOtp } from "../../_types/auth_types";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { loginSchema } from "../../utils/Schema";
+import { loginSchemaOtp } from "../../utils/schema";
 
 const Login = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginForm>({
-    resolver: yupResolver(loginSchema),
+  } = useForm<LoginFormOtp>({
+    resolver: yupResolver(loginSchemaOtp),
   });
 
   const onLogin = (data) => {
@@ -55,7 +55,7 @@ const Login = () => {
         </button>
         <p className="my-5">
           Don't have an account yet ?
-          <Link href="/auth/register">
+          <Link href="/auth-otp/register">
             <span className="text-blue-600 cursor-pointer"> Join</span>
           </Link>
         </p>
