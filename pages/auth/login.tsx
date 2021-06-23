@@ -15,11 +15,17 @@ const Login = () => {
     resolver: yupResolver(loginSchema),
   });
 
-  const { getData, data, isLoading } = useAxios({ url: "/api/auth/login" });
+  const { getData, data, isLoading } = useAxios();
 
-  const onLogin = (data) => {
-    console.log(data);
-    getData();
+  const onLogin = async ({ email, password_min }) => {
+    await getData({
+      url: "/api/auth/login",
+      method: "POST",
+      input: {
+        email: email,
+        password: password_min,
+      },
+    });
   };
 
   console.log(data);

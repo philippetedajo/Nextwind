@@ -5,10 +5,7 @@ export default withSession(async (req, res) => {
   const url = `${process.env.API_URL}/auth/login`;
 
   try {
-    const data = await axios.post(url, {
-      email: "djanzou120@yahoo.fr",
-      password: "password",
-    });
+    const data = await axios.post(url, req.body);
 
     if (data.status !== 200) console.log("Something goes wrong");
 

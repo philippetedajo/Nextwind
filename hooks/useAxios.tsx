@@ -8,20 +8,16 @@ interface UseAxiosProps {
   token?: string;
 }
 
-export const useAxios = ({
-  url,
-  method = "GET",
-  input,
-  token,
-}: UseAxiosProps) => {
+export const useAxios = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [data, setData] = useState({});
   const [error, setError] = useState({});
 
-  let header = { "Content-Type": "application/json" };
-  if (token) header["Authorization"] = token;
+  const getData = ({ url, method = "GET", input, token }: UseAxiosProps) => {
+    let header = { "Content-Type": "application/json" };
+    if (token) header["Authorization"] = token;
 
-  const getData = () => {
+    console.log(input);
     setIsLoading(true);
     axios({
       url: url,
