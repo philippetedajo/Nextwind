@@ -13,18 +13,19 @@ export const AuthContext = createContext<AuthContextInterface | null>(null);
 export const AuthProvider = ({ children }) => {
   const router = useRouter();
   const [user, setUser] = useState(null);
-  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const login = async (input) => {
+    console.log(input);
     setIsLoading(true);
     try {
       const response = await axios.post("/api/auth/login", input);
       setUser(response.data);
       setIsLoading(false);
-      setMessage("");
+      setError("");
     } catch (error) {
-      setMessage(error.message);
+      setError(error.message);
       setIsLoading(false);
     }
   };
