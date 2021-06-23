@@ -18,7 +18,7 @@ export default withSession(async (req, res) => {
     }
 
     req.session.destroy();
-    res.json({ isLoggedIn: false, data: data.data });
+    res.json({ isLoggedIn: false, data: null });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

@@ -109,10 +109,11 @@ const Register = () => {
           </Link>
         </p>
 
-        <div className="pt-3 flex text-sm text-red-500 ">
-          <ExclamationCircleIcon width={20} className="mr-2" />{" "}
-          {user?.data?.message}
-        </div>
+        {user?.data?.code === 1103 ? (
+          <div className="pt-3 text-sm text-red-500">{user?.data?.message}</div>
+        ) : (
+          ""
+        )}
       </form>
     </div>
   );

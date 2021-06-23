@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }) => {
       setIsLoading(true);
       const response = await axios.post("/api/auth/logout");
       setUser(response.data);
-      if (response.data.data.code === 200) await router.push("/auth/login");
+      await router.push("/auth/login");
       setIsLoading(false);
       setError("");
     } catch (error) {
