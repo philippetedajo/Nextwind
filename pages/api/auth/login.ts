@@ -7,10 +7,7 @@ export default withSession(async (req, res) => {
   try {
     const data = await axios.post(url, req.body);
 
-    console.log(data.data.code);
-
     if (data.data.code != 200) {
-      console.log("not permit");
       const user = { sLoggedIn: false, data: data.data };
       res.json(user);
       return;
@@ -21,9 +18,6 @@ export default withSession(async (req, res) => {
     await req.session.save();
     res.json(user);
   } catch (error) {
-    if (process.env.NODE_ENV === "development") {
-      console.log(error);
-    }
     res.status(500).json({ message: error.message });
   }
 });
