@@ -1,4 +1,5 @@
 import { Progress } from "../components";
+import { AuthProvider } from "../context/authContext";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
@@ -7,9 +8,11 @@ function MyApp({ Component, pageProps }) {
   Progress();
 
   return (
-    <Template>
-      <Component {...pageProps} />
-    </Template>
+    <AuthProvider>
+      <Template>
+        <Component {...pageProps} />
+      </Template>
+    </AuthProvider>
   );
 }
 

@@ -1,10 +1,12 @@
-import AuthTemplate from "../../templates/auth.template";
+import { useContext } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import { LoginForm } from "../../_types/auth_types";
 import { yupResolver } from "@hookform/resolvers/yup";
+
+import { AuthContext } from "../../context";
+import AuthTemplate from "../../templates/auth.template";
+import { LoginForm } from "../../_types/auth_types";
 import { loginSchema } from "../../utils/schema";
-import { useAxios } from "../../hooks/useAxios";
 
 const Login = () => {
   const {
@@ -15,20 +17,16 @@ const Login = () => {
     resolver: yupResolver(loginSchema),
   });
 
-  const { getData, data, isLoading } = useAxios();
+  const { login, user, isLoading } = useContext(AuthContext);
 
   const onLogin = async ({ email, password_min }) => {
-    await getData({
-      url: "/api/auth/login",
-      method: "POST",
-      input: {
-        email: email,
-        password: password_min,
-      },
+    login({
+      email: email,
+      password: password_min,
     });
   };
 
-  console.log(data);
+  console.log(user);
 
   return (
     <div className="w-96 lg:w-2/5">
