@@ -5,6 +5,7 @@ import axios from "axios";
 interface AuthContextInterface {
   user: any;
   login: any;
+  signup: any;
   isLoading: boolean;
   error?: string;
 }
@@ -18,9 +19,8 @@ export const AuthProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const login = async (input) => {
-    console.log(input);
-    setIsLoading(true);
     try {
+      setIsLoading(true);
       const response = await axios.post("/api/auth/login", input);
       setUser(response.data);
       if (response.data.data.code === 200) await router.push("/profile");
@@ -32,8 +32,22 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const signup = async (input) => {
+    try {
+      setIsLoading(true);
+      const response = await axios.post("/api/auth/signup", input);
+      setUser(response.data);
+      if (response.data.data.code === 200) await router.push("/profile");
+      setIsLoading(false);
+      setError("");
+    } catch (error) {
+      setError(error.message);
+      setIsLoading(false);
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ user, login, isLoading, error }}>
+    <AuthContext.Provider value={{ login, signup, user, isLoading, error }}>
       {children}
     </AuthContext.Provider>
   );

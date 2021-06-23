@@ -2,7 +2,7 @@ import axios from "axios";
 import withSession from "../../../utils/session";
 
 export default withSession(async (req, res) => {
-  const url = `${process.env.API_URL}/auth/login`;
+  const url = `${process.env.API_URL}/auth/register`;
 
   try {
     const data = await axios.post(url, req.body);
@@ -13,10 +13,10 @@ export default withSession(async (req, res) => {
       return;
     }
 
-    const user = { isLoggedIn: true, data: data.data };
-    req.session.set("user", user);
+    const newUser = { isLoggedIn: true, data: data.data };
+    req.session.set("user", newUser);
     await req.session.save();
-    res.json(user);
+    res.json(newUser);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

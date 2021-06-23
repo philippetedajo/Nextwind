@@ -4,6 +4,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { RegisterForm } from "../../_types/auth_types";
 import { registerSchema } from "../../utils/schema";
 import AuthTemplate from "../../templates/auth.template";
+import { useContext } from "react";
+import { AuthContext } from "../../context";
 
 const Register = () => {
   const {
@@ -14,9 +16,18 @@ const Register = () => {
     resolver: yupResolver(registerSchema),
   });
 
-  const onRegister = (data) => {
-    console.log(data);
+  const { signup, user, isLoading } = useContext(AuthContext);
+
+  const onRegister = async ({ firstname, lastname, email, password }) => {
+    signup({
+      firstname: firstname,
+      lastname: lastname,
+      email: email,
+      password: password,
+    });
   };
+
+  console.log(user);
 
   return (
     <div className="w-96 lg:w-2/5">
@@ -89,7 +100,7 @@ const Register = () => {
           type="submit"
           className="btn w-full bg-blue-600 text-white mt-3 pb-3"
         >
-          CREATE ACCOUNT
+          {isLoading ? "Processing" : "CREATE ACCOUNT"}
         </button>
 
         <p className="my-5">
