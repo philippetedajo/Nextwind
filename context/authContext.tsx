@@ -20,6 +20,7 @@ export const AuthProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const login = async (input) => {
+    setUser(null);
     try {
       setIsLoading(true);
       const response = await axios.post("/api/auth/login", input);
@@ -34,6 +35,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const signup = async (input) => {
+    setUser(null);
     try {
       setIsLoading(true);
       const response = await axios.post("/api/auth/signup", input);
@@ -48,6 +50,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = async () => {
+    setUser(null);
     try {
       setIsLoading(true);
       const response = await axios.post("/api/auth/logout");
