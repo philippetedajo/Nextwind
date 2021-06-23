@@ -31,7 +31,7 @@ const Register = () => {
   return (
     <div className="w-96 lg:w-2/5">
       <form onSubmit={handleSubmit(onRegister)}>
-        <h1 className="mb-10 mt-16">Register</h1>
+        <h1 className="mb-10 mt-8">Register</h1>
         <h2>Create your account in a few clicks</h2>
         <p className="mt-2 mb-5 text-gray-400 ">Welcome amongs us</p>
 
@@ -99,21 +99,17 @@ const Register = () => {
           type="submit"
           className="btn w-full bg-blue-600 text-white mt-3 pb-3"
         >
-          {isLoading ? "Processing" : "CREATE ACCOUNT"}
+          {isLoading ? "Processing..." : "CREATE ACCOUNT"}
         </button>
 
-        <p className="my-5">
+        <p className="mt-5">
           Already have an account ?
           <Link href="/auth/login">
             <span className="text-blue-600 cursor-pointer"> Login</span>
           </Link>
         </p>
 
-        {user?.data?.code === 1103 ? (
-          <div className="pt-3 text-sm text-red-500">{user?.data?.message}</div>
-        ) : (
-          ""
-        )}
+        <div className="pt-3 text-sm text-red-500">{user?.data?.message}</div>
       </form>
     </div>
   );

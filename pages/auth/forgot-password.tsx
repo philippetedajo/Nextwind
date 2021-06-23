@@ -20,7 +20,7 @@ const Forgot = () => {
   return (
     <div className="w-96 lg:w-2/5">
       <form onSubmit={handleSubmit(onForgotPassword)}>
-        <h1 className="mb-10 mt-16">Forgot password ?</h1>
+        <h1 className="mb-10 mt-8">Forgot password ?</h1>
         <h2>Get a new password</h2>
         <p className="mt-2 mb-5 text-gray-400 ">Set your email</p>
 

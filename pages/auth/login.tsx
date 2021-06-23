@@ -30,7 +30,7 @@ const Login = () => {
   return (
     <div className="w-96 lg:w-2/5">
       <form onSubmit={handleSubmit(onLogin)}>
-        <h1 className="mb-10 mt-16">Login</h1>
+        <h1 className="mb-10 mt-8">Login</h1>
         <h2>Login to your account</h2>
         <p className="mt-2 mb-5 text-gray-400 ">Happy to meet you again</p>
 
@@ -60,10 +60,10 @@ const Login = () => {
           type="submit"
           className="btn w-full bg-blue-600 text-white mt-3 pb-3"
         >
-          {isLoading ? "processing.." : "SIGN IN"}
+          {isLoading ? "processing..." : "SIGN IN"}
         </button>
 
-        <div className="flex mt-3 justify-between">
+        <div className="flex mt-5 justify-between">
           <p className="">
             Don't have an account yet ?
             <Link href="/auth/register">
