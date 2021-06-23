@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { LoginForm } from "../../_types/auth_types";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "../../utils/schema";
+import { useAxios } from "../../hooks/useAxios";
 
 const Login = () => {
   const {
@@ -14,8 +15,11 @@ const Login = () => {
     resolver: yupResolver(loginSchema),
   });
 
+  const { getData, data, isLoading } = useAxios({ url: "/api/auth/login" });
+
   const onLogin = (data) => {
     console.log(data);
+    // getData();
   };
 
   return (
