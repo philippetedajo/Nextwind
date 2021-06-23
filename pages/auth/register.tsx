@@ -96,6 +96,7 @@ const Register = () => {
 
         <button
           type="submit"
+          disabled={isLoading}
           className="btn w-full bg-blue-600 text-white mt-3 pb-3"
         >
           {isLoading ? "Processing..." : "CREATE ACCOUNT"}
