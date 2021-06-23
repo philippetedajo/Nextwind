@@ -47,16 +47,3 @@ h2 {
   @apply border rounded py-2 px-5 text-sm;
 }
 
-/*otp ================================= */
-
-.inputStyle {
-  width: 3rem !important;
-  height: 3rem;
-  font-size: 2rem;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-}
-
-.error {
-  border: 1px solid red !important;
-}
