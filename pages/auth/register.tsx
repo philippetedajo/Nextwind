@@ -6,7 +6,6 @@ import { registerSchema } from "../../utils/schema";
 import AuthTemplate from "../../templates/auth.template";
 import { useContext } from "react";
 import { AuthContext } from "../../context";
-import { ExclamationCircleIcon } from "@heroicons/react/outline";
 
 const Register = () => {
   const {
