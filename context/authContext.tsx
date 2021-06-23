@@ -6,6 +6,7 @@ interface AuthContextInterface {
   user: any;
   login: any;
   signup: any;
+  logout: any;
   isLoading: boolean;
   error?: string;
 }
@@ -46,8 +47,24 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const logout = async () => {
+    try {
+      setIsLoading(true);
+      const response = await axios.post("/api/auth/logout");
+      setUser(response.data);
+      if (response.data.data.code === 200) await router.push("/");
+      setIsLoading(false);
+      setError("");
+    } catch (error) {
+      setError(error.message);
+      setIsLoading(false);
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ login, signup, user, isLoading, error }}>
+    <AuthContext.Provider
+      value={{ login, signup, logout, user, isLoading, error }}
+    >
       {children}
     </AuthContext.Provider>
   );
