@@ -2,6 +2,7 @@ import { useContext } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { ExclamationCircleIcon } from "@heroicons/react/outline";
 
 import { AuthContext } from "../../context";
 import AuthTemplate from "../../templates/auth.template";
@@ -20,14 +21,11 @@ const Login = () => {
   const { login, user, isLoading } = useContext(AuthContext);
 
   const onLogin = async ({ email, password_min }) => {
-    console.log(password_min);
     login({
       email: email,
       password: password_min,
     });
   };
-
-  console.log(user);
 
   return (
     <div className="w-96 lg:w-2/5">
@@ -76,6 +74,11 @@ const Login = () => {
           <Link href="/auth/forgot-password">
             <a className="text-sm text-gray-500">Forgot your password ?</a>
           </Link>
+        </div>
+
+        <div className="pt-3 flex text-sm text-red-500 ">
+          <ExclamationCircleIcon width={20} className="mr-2" />{" "}
+          {user?.data?.message}
         </div>
       </form>
     </div>
