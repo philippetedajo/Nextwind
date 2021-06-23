@@ -6,6 +6,7 @@ interface AuthContextInterface {
   user: any;
   login: any;
   isLoading: boolean;
+  error?: string;
 }
 
 export const AuthContext = createContext<AuthContextInterface | null>(null);
@@ -22,6 +23,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const response = await axios.post("/api/auth/login", input);
       setUser(response.data);
+      if (response.data.data.code === 200) await router.push("/profile");
       setIsLoading(false);
       setError("");
     } catch (error) {
@@ -30,10 +32,8 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  //     router.push("/account");
-
   return (
-    <AuthContext.Provider value={{ user, login, isLoading }}>
+    <AuthContext.Provider value={{ user, login, isLoading, error }}>
       {children}
     </AuthContext.Provider>
   );

@@ -7,8 +7,11 @@ export default withSession(async (req, res) => {
   try {
     const data = await axios.post(url, req.body);
 
+    console.log(data.data.code);
+
     if (data.data.code != 200) {
-      const user = { isLoggedIn: false, data: data.data };
+      console.log("not permit");
+      const user = { sLoggedIn: false, data: data.data };
       res.json(user);
       return;
     }

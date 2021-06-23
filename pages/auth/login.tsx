@@ -20,6 +20,7 @@ const Login = () => {
   const { login, user, isLoading } = useContext(AuthContext);
 
   const onLogin = async ({ email, password_min }) => {
+    console.log(password_min);
     login({
       email: email,
       password: password_min,
