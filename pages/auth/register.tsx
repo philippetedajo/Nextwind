@@ -6,6 +6,7 @@ import { registerSchema } from "../../utils/schema";
 import AuthTemplate from "../../templates/auth.template";
 import { useContext } from "react";
 import { AuthContext } from "../../context";
+import { ExclamationCircleIcon } from "@heroicons/react/outline";
 
 const Register = () => {
   const {
@@ -26,8 +27,6 @@ const Register = () => {
       password: password,
     });
   };
-
-  console.log(user);
 
   return (
     <div className="w-96 lg:w-2/5">
@@ -109,6 +108,11 @@ const Register = () => {
             <span className="text-blue-600 cursor-pointer"> Login</span>
           </Link>
         </p>
+
+        <div className="pt-3 flex text-sm text-red-500 ">
+          <ExclamationCircleIcon width={20} className="mr-2" />{" "}
+          {user?.data?.message}
+        </div>
       </form>
     </div>
   );
