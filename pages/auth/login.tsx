@@ -23,7 +23,6 @@ const Login = () => {
   };
 
   console.log(data);
-  console.log(isLoading);
 
   return (
     <div className="w-96 lg:w-2/5">
@@ -58,7 +57,7 @@ const Login = () => {
           type="submit"
           className="btn w-full bg-blue-600 text-white mt-3 pb-3"
         >
-          SIGN IN
+          {isLoading ? "processing.." : "SIGN IN"}
         </button>
 
         <div className="flex mt-3 justify-between">
