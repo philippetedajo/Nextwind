@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -17,10 +17,14 @@ const Login = () => {
     resolver: yupResolver(loginSchema),
   });
 
-  const { login, user, isLoading } = useContext(AuthContext);
+  const { login, user, isLoading, checkSession } = useContext(AuthContext);
+
+  useEffect(() => {
+    checkSession();
+  });
 
   const onLogin = async ({ email, password_min }) => {
-    login({
+    await login({
       email: email,
       password: password_min,
     });
