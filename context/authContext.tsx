@@ -4,9 +4,9 @@ import axios from "axios";
 
 interface AuthContextInterface {
   user: any;
-  login: any;
-  signup: any;
-  logout: any;
+  login: (input: any) => Promise<void>;
+  signup: (input: any) => Promise<void>;
+  logout: () => Promise<void>;
   isLoading: boolean;
   error?: string;
 }
