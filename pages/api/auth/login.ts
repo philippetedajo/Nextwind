@@ -7,10 +7,13 @@ export default withSession(async (req, res) => {
   try {
     const data = await axios.post(url, req.body);
 
-    if (data.status !== 200) console.log("Something goes wrong");
+    if (data.data.code != 200) {
+      const user = { isLoggedIn: false, data: data.data };
+      res.json(user);
+      return;
+    }
 
     const user = { isLoggedIn: true, data: data.data };
-    console.log(user);
     req.session.set("user", user);
     await req.session.save();
     res.json(user);
