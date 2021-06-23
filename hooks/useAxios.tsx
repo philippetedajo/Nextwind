@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import axios,{ Method } from "axios";
-
+import axios, { Method } from "axios";
 
 interface UseAxiosProps {
   url: string;
@@ -31,11 +30,12 @@ export const useAxios = ({
       headers: header,
     })
       .then((response) => {
-        setIsLoading(false);
         setData(response);
+        setIsLoading(false);
       })
       .then((error: any) => {
-        setError(error.message);
+        setError(error);
+        setIsLoading(false);
       });
   };
 

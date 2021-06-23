@@ -19,8 +19,11 @@ const Login = () => {
 
   const onLogin = (data) => {
     console.log(data);
-    // getData();
+    getData();
   };
+
+  console.log(data);
+  console.log(isLoading);
 
   return (
     <div className="w-96 lg:w-2/5">

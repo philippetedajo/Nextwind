@@ -2,21 +2,25 @@ import axios from "axios";
 import withSession from "../../../utils/session";
 
 export default withSession(async (req, res) => {
-  const url = `${process.env}/auth/login`;
+  const url = `${process.env.API_URL}/auth/login`;
 
   try {
-    // we check that the user exists on GitHub and store some data in session
     const data = await axios.post(url, {
-      email: "string",
-      password: "string",
+      email: "djanzou120@yahoo.fr",
+      password: "password",
     });
 
-    const user = { isLoggedIn: true, data };
+    if (data.status !== 200) console.log("Something goes wrong");
+
+    const user = { isLoggedIn: true, data: data.data };
+    console.log(user);
     req.session.set("user", user);
     await req.session.save();
     res.json(user);
   } catch (error) {
-    const { response: fetchResponse } = error;
-    res.status(fetchResponse?.status || 500).json(error.data);
+    if (process.env.NODE_ENV === "development") {
+      console.log(error);
+    }
+    res.status(500).json({ message: error.message });
   }
 });
