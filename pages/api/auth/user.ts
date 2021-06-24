@@ -8,6 +8,7 @@ export default withSession(async (req, res) => {
     // to get more information on the user if needed
     res.json({
       isLoggedIn: true,
+      ...user,
     });
   } else {
     res.json({

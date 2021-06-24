@@ -1,7 +1,11 @@
 import React from "react";
 
 export const LoadingScreen = () => {
-  return <div>Loading .....</div>;
+  return (
+    <div className="w-full h-screen flex justify-center items-center">
+      Loading .....
+    </div>
+  );
 };
 // <svg
 //     className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"

@@ -19,6 +19,8 @@ export const AuthProvider = ({ children }) => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  console.log(user);
+
   const login = async (input) => {
     setUser(null);
     try {
@@ -63,6 +65,8 @@ export const AuthProvider = ({ children }) => {
       setIsLoading(false);
     }
   };
+
+
 
   return (
     <AuthContext.Provider
