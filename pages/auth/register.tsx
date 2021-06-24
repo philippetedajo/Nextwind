@@ -7,7 +7,6 @@ import AuthTemplate from "../../templates/auth.template";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../context";
 import { useRouter } from "next/router";
-import { LoadingScreen } from "../../components";
 
 const Register = () => {
   const router = useRouter();

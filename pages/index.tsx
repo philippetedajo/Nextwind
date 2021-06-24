@@ -5,7 +5,7 @@ import { AuthContext } from "../context";
 import { useRouter } from "next/router";
 
 const Home = () => {
-  const { checkSession, login, user, isLoading } = useContext(AuthContext);
+  const { checkSession, user } = useContext(AuthContext);
   const router = useRouter();
 
   useEffect(() => {
