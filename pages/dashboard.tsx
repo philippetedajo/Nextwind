@@ -1,8 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import { useRouter } from "next/router";
 import { AuthContext } from "../context";
 
 const Dashboard = () => {
+  const router = useRouter();
   const { logout, user, isLoading } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (!user && !user?.isLoggedIn) {
+      router.push("/auth/login");
+    }
+  }, [user?.isLoggedIn]);
 
   return (
     <div className="w-full h-screen flex flex-col pt-20 items-center">
