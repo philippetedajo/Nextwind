@@ -18,7 +18,7 @@ const Login = () => {
     resolver: yupResolver(loginSchema),
   });
 
-  const { login, user, isLoading, checkSession } = useContext(AuthContext);
+  const { login, user, isLoading } = useContext(AuthContext);
 
   const onLogin = async ({ email, password_min }) => {
     await login({
@@ -26,14 +26,6 @@ const Login = () => {
       password: password_min,
     });
   };
-
-  useEffect(() => {
-    checkSession();
-  });
-
-  if (!user || user?.isLoggedIn) {
-    return <LoadingScreen />;
-  }
 
   return (
     <div className="w-96 lg:w-2/5">

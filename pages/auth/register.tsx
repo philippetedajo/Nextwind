@@ -17,7 +17,7 @@ const Register = () => {
     resolver: yupResolver(registerSchema),
   });
 
-  const { signup, user, isLoading, checkSession } = useContext(AuthContext);
+  const { signup, user, isLoading } = useContext(AuthContext);
 
   const onRegister = async ({ firstname, lastname, email, password }) => {
     await signup({
@@ -27,14 +27,6 @@ const Register = () => {
       password: password,
     });
   };
-
-  useEffect(() => {
-    checkSession();
-  });
-
-  if (!user || user?.isLoggedIn) {
-    return <LoadingScreen />;
-  }
 
   return (
     <div className="w-96 lg:w-2/5">
