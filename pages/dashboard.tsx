@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../context";
 
-const Profile = () => {
+const Dashboard = () => {
   const { logout, user, isLoading } = useContext(AuthContext);
 
   return (
     <div className="w-full h-screen flex flex-col pt-20 items-center">
-      <h1 className="text-2xl mb-5">Profile</h1>
+      <h1 className="text-2xl mb-5">Dashboard</h1>
 
       <div className="flex items-center flex-col mb-5">
         <div className="flex items-center flex-col">
@@ -27,4 +27,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Dashboard;

@@ -5,11 +5,11 @@ const Home = () => {
   return (
     <div>
       <Head>
-        <title>Stamina</title>
+        <title>Nextwind</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="flex justify-center">
-        <p className="mt-14 text-2xl md:text-4xl text-center w-2/3">Stamina</p>
+        <p className="mt-14 text-2xl md:text-4xl text-center w-2/3">Nextwind</p>
       </div>
     </div>
   );
