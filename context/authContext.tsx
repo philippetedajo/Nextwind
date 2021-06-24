@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
       setIsLoading(true);
       const response = await axios.post("/api/auth/login", input);
       setUser(response.data);
-      if (response.data.data.code === 200) await router.push("/profile");
+      if (response.data.data.code === 200) await router.push("/dashboard");
       setIsLoading(false);
       setError("");
     } catch (error) {
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
       setIsLoading(true);
       const response = await axios.post("/api/auth/signup", input);
       setUser(response.data);
-      if (response.data.data.code === 200) await router.push("/profile");
+      if (response.data.data.code === 200) await router.push("/dashboard");
       setIsLoading(false);
       setError("");
     } catch (error) {
