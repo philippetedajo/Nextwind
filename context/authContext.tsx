@@ -7,6 +7,7 @@ interface AuthContextInterface {
   login: (input: any) => Promise<void>;
   signup: (input: any) => Promise<void>;
   logout: () => Promise<void>;
+  checkSession: () => Promise<void>;
   isLoading: boolean;
   error?: string;
 }
@@ -18,8 +19,6 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
-  console.log(user);
 
   const login = async (input) => {
     setUser(null);
@@ -66,11 +65,15 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-
+  const checkSession = async () => {
+    const response = await axios.get("/api/auth/user");
+    setUser(response.data);
+    console.log(response.data);
+  };
 
   return (
     <AuthContext.Provider
-      value={{ login, signup, logout, user, isLoading, error }}
+      value={{ login, signup, logout, checkSession, user, isLoading, error }}
     >
       {children}
     </AuthContext.Provider>

@@ -1,5 +1,6 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -9,6 +10,7 @@ import { LoginForm } from "../../_types/auth_types";
 import { loginSchema } from "../../utils/schema";
 
 const Login = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -17,7 +19,14 @@ const Login = () => {
     resolver: yupResolver(loginSchema),
   });
 
-  const { login, user, isLoading } = useContext(AuthContext);
+  const { checkSession, login, user, isLoading } = useContext(AuthContext);
+
+  useEffect(() => {
+    checkSession();
+    if (user && user?.isLoggedIn) {
+      router.push("/profile");
+    }
+  }, [user?.isLoggedIn]);
 
   const onLogin = async ({ email, password_min }) => {
     await login({
