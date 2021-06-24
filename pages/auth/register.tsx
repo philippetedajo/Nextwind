@@ -24,7 +24,7 @@ const Register = () => {
   useEffect(() => {
     checkSession();
     if (user && user?.isLoggedIn) {
-      router.push("/profile");
+      router.push("/dashboard");
     }
   }, [user?.isLoggedIn]);
 
