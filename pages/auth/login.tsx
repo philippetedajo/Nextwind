@@ -7,6 +7,7 @@ import { AuthContext } from "../../context";
 import AuthTemplate from "../../templates/auth.template";
 import { LoginForm } from "../../_types/auth_types";
 import { loginSchema } from "../../utils/schema";
+import { LoadingScreen } from "../../components";
 
 const Login = () => {
   const {
@@ -19,16 +20,20 @@ const Login = () => {
 
   const { login, user, isLoading, checkSession } = useContext(AuthContext);
 
-  useEffect(() => {
-    checkSession();
-  });
-
   const onLogin = async ({ email, password_min }) => {
     await login({
       email: email,
       password: password_min,
     });
   };
+
+  useEffect(() => {
+    checkSession();
+  });
+
+  if (!user || user?.isLoggedIn) {
+    return <LoadingScreen />;
+  }
 
   return (
     <div className="w-96 lg:w-2/5">

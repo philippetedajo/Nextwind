@@ -6,6 +6,7 @@ import { registerSchema } from "../../utils/schema";
 import AuthTemplate from "../../templates/auth.template";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../context";
+import { LoadingScreen } from "../../components";
 
 const Register = () => {
   const {
@@ -18,10 +19,6 @@ const Register = () => {
 
   const { signup, user, isLoading, checkSession } = useContext(AuthContext);
 
-  useEffect(() => {
-    checkSession();
-  });
-
   const onRegister = async ({ firstname, lastname, email, password }) => {
     await signup({
       firstname: firstname,
@@ -30,6 +27,14 @@ const Register = () => {
       password: password,
     });
   };
+
+  useEffect(() => {
+    checkSession();
+  });
+
+  if (!user || user?.isLoggedIn) {
+    return <LoadingScreen />;
+  }
 
   return (
     <div className="w-96 lg:w-2/5">
