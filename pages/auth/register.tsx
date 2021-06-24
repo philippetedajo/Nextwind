@@ -7,6 +7,7 @@ import AuthTemplate from "../../templates/auth.template";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../context";
 import { useRouter } from "next/router";
+import { LoadingScreen } from "../../components";
 
 const Register = () => {
   const router = useRouter();
@@ -26,6 +27,10 @@ const Register = () => {
       router.push("/profile");
     }
   }, [user?.isLoggedIn]);
+
+  if (!user || user?.isLoggedIn) {
+    return <LoadingScreen />;
+  }
 
   const onRegister = async ({ firstname, lastname, email, password }) => {
     await signup({

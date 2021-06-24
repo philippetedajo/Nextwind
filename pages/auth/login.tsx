@@ -8,6 +8,7 @@ import { AuthContext } from "../../context";
 import AuthTemplate from "../../templates/auth.template";
 import { LoginForm } from "../../_types/auth_types";
 import { loginSchema } from "../../utils/schema";
+import { LoadingScreen } from "../../components";
 
 const Login = () => {
   const router = useRouter();
@@ -27,6 +28,10 @@ const Login = () => {
       router.push("/profile");
     }
   }, [user?.isLoggedIn]);
+
+  if (!user || user?.isLoggedIn) {
+    return <LoadingScreen />;
+  }
 
   const onLogin = async ({ email, password_min }) => {
     await login({
