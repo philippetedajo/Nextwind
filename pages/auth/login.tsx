@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -7,7 +7,6 @@ import { AuthContext } from "../../context";
 import AuthTemplate from "../../templates/auth.template";
 import { LoginForm } from "../../_types/auth_types";
 import { loginSchema } from "../../utils/schema";
-import { LoadingScreen } from "../../components";
 
 const Login = () => {
   const {

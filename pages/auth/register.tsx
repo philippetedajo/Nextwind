@@ -4,9 +4,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { RegisterForm } from "../../_types/auth_types";
 import { registerSchema } from "../../utils/schema";
 import AuthTemplate from "../../templates/auth.template";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../context";
-import { LoadingScreen } from "../../components";
 
 const Register = () => {
   const {
