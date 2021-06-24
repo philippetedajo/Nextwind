@@ -29,10 +29,6 @@ const Login = () => {
     }
   }, [user?.isLoggedIn]);
 
-  if (!user || user?.isLoggedIn) {
-    return <LoadingScreen />;
-  }
-
   const onLogin = async ({ email, password_min }) => {
     await login({
       email: email,

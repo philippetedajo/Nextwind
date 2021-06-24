@@ -28,10 +28,6 @@ const Register = () => {
     }
   }, [user?.isLoggedIn]);
 
-  if (!user || user?.isLoggedIn) {
-    return <LoadingScreen />;
-  }
-
   const onRegister = async ({ firstname, lastname, email, password }) => {
     await signup({
       firstname: firstname,

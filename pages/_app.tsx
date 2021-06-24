@@ -1,5 +1,5 @@
 import { Progress } from "../components";
-import { AuthProvider } from "../context/authContext";
+import { AuthProvider } from "../context";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
